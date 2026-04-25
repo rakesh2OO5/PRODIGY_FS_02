@@ -32,7 +32,7 @@ const getEmployees = async (req, res, next) => {
     const totalEmployees = await Employee.countDocuments(query);
     const totalPages = Math.max(Math.ceil(totalEmployees / limit), 1);
     const employees = await Employee.find(query)
-      .sort({ createdAt: -1 })
+      .sort({ _id: -1 })
       .skip((page - 1) * limit)
       .limit(limit);
 
